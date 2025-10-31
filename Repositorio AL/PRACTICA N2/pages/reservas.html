@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title> Il capocannoniere - Inicio </title>
+        <link rel="stylesheet" href="../design/estilos.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container">
+            <a href=../index.html class="logo"><img src="../assets/imgs/logo.png" alt="Logotipo Il capocannoniere"/></a>
+            <nav>
+                <ul>
+                    <li><a href=../index.html>Inicio</a></li>
+                    <li><a href=menu.html>Menú</a></li>
+                    <li><a href=reservas.html>Reservar</a></li>
+                    <li><a href=acerca.html>Quiénes somos</a></li>
+                </ul>
+            </nav>
+            </div>
+        </header>
+
+  <main class="container">
+    <h1><span class="color-letra1">Con</span>ta<span class="color-letra2">cto</span></h1>
+
+    <section aria-labelledby="pedido-title" id="pedido">
+      <h2 id="pedido-title"><span class="color-letra1">Reali</span>zar re<span class="color-letra2">serva</span></h2>
+
+      <!-- formulario funcional con mailto -->
+      <form action="mailto:servicios@ilcapocannoniere.com" method="post" enctype="text/plain">
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" name="Nombre" type="text" required>
+
+        <label for="email">Correo electrónico</label>
+        <input id="email" name="Email" type="email" required>
+
+        <label for="mensaje">Fecha y Hora</label>
+        <textarea id="mensaje" name="Mensaje" required></textarea>
+
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+      <p id="contacto-alt">También puedes escribirnos a <a href="mailto:gerencia@electroplus.com">servicios@ilcapocannoniere.com</a></p>
+    </section>
+
+    <section id="soporte" aria-labelledby="soporte-title">
+      <h2 id="soporte-title"><span class="color-letra1">Sop</span>o<span class="color-letra2">rte</span></h2>
+      <p>Teléfono: +593 963996287</p>
+    </section>
+  </main>
+
+  <footer>
+                <div class="container">
+                    <p class="footer">&copy; 2024 Il Capocannoniere</p>
+                    <p class="footer">“Donde cada gol se celebra con un buen plato de pasta.”</p>
+                </div>
+            </footer>
+    </body>
+</html>

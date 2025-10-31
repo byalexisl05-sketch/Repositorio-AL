@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamesGauges - Iniciar Sesión</title>
+    <link rel="stylesheet" href="../design/estilos.css">
+    <style>
+        .input-error { border: 2px solid red; }
+        .input-valid { border: 2px solid green; }
+        .error-message { color: red; font-size: 0.9em; margin-top: 2px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/imgs/logo.png" alt="Logo GamesGauges">
+            <span>GamesGauges</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../pages/generos.html">Géneros</a></li>
+                <li><a href="../pages/reseñasRecientes.html">Reseñas Recientes</a></li>
+                <li><a href="../pages/realizarReseña.html">Realizar Reseña</a></li>
+                <li><a href="../pages/perfil.html">Perfil</a></li>
+                <li><a href="../pages/acerca.html">Acerca</a></li>
+                <li><a href="../pages/inicioSesion.html" class="activo">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="formulario">
+        <h2>Iniciar Sesión</h2>
+        <form id="formLogin">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="clave">Contraseña:</label>
+            <input type="password" id="clave" name="clave" required>
+
+            <button type="submit">Entrar</button>
+            <a href="registro.html" class="btn">Registrarse</a>         
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GamesGauges - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/validations.js"></script>
+    <script>
+        // Funciones de DOM para mostrar errores y exito
+        const mostrarError = (inputElement, validationResult) => {
+            limpiarError(inputElement);
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = validationResult.errorMessage;
+            inputElement.classList.add('input-error');
+            inputElement.parentElement.appendChild(errorDiv);
+        };
+
+        const mostrarExito = (inputElement) => {
+            limpiarError(inputElement);
+            inputElement.classList.add('input-valid');
+        };
+
+        const limpiarError = (inputElement) => {
+            const errorDiv = inputElement.parentElement.querySelector('.error-message');
+            if (errorDiv) errorDiv.remove();
+            inputElement.classList.remove('input-error', 'input-valid');
+        };
+
+        // Validaciones en tiempo real
+        const usuarioInput = document.querySelector('#usuario');
+        const claveInput = document.querySelector('#clave');
+        const formLogin = document.querySelector('#formLogin');
+
+        usuarioInput.addEventListener('blur', (e) => {
+            const resultado = validarRequerido(e.target.value);
+            resultado.isValid ? mostrarExito(e.target) : mostrarError(e.target, resultado);
+        });
+
+        claveInput.addEventListener('blur', (e) => {
+            const resultado = validarRequerido(e.target.value);
+            resultado.isValid ? mostrarExito(e.target) : mostrarError(e.target, resultado);
+        });
+
+        formLogin.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let valido = true;
+
+            const resUsuario = validarRequerido(usuarioInput.value);
+            const resClave = validarRequerido(claveInput.value);
+
+            if (!resUsuario.isValid) { mostrarError(usuarioInput, resUsuario); valido = false; }
+            if (!resClave.isValid) { mostrarError(claveInput, resClave); valido = false; }
+
+            if (valido) {
+                alert('Formulario válido, se enviaria al servidor');
+            } else {
+                alert('Corrige los errores antes de enviar');
+            }
+        });
+    </script>
+</body>
+</html>

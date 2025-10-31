@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamesGauges - Registrarse</title>
+    <link rel="stylesheet" href="../design/estilos.css">
+    <style>
+        /* Estilos rápidos para mensajes de validacion */
+        .input-error { border: 2px solid red; }
+        .input-valid { border: 2px solid green; }
+        .error-message { color: red; font-size: 0.9em; margin-top: 2px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/imgs/logo.png" alt="Logo GamesGauges">
+            <span>GamesGauges</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../pages/generos.html">Géneros</a></li>
+                <li><a href="../pages/reseñasRecientes.html">Reseñas Recientes</a></li>
+                <li><a href="../pages/realizarReseña.html">Realizar Reseña</a></li>
+                <li><a href="../pages/perfil.html">Perfil</a></li>
+                <li><a href="../pages/acerca.html">Acerca</a></li>
+                <li><a href="../pages/inicioSesion.html">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="formulario">
+        <h2>Registrarse</h2>
+        <form id="formRegistro">
+            <label for="usuario">Nombre de usuario:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="clave">Contraseña:</label>
+            <input type="password" id="clave" name="clave" required>
+
+            <label for="confirmar-clave">Confirmar Contraseña:</label>
+            <input type="password" id="confirmar-clave" name="confirmar-clave" required>
+
+            <button type="submit">Registrarse</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 GamesGauges - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script type="module" src="../js/app.js"></script>
+</body>
+</html>

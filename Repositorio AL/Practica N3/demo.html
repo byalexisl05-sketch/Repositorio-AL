@@ -1,0 +1,61 @@
+// ejemplode Validaciones
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Validaciones - GamesGauges</title>
+  <script src="validations.js"></script>
+</head>
+<body>
+  <h1>Demo Validaciones</h1>
+  <p>Abre la consola para ver los resultados.</p>
+
+  <script>
+    // Ejemplos de pruebas
+    console.log("Prueba validarRequerido:");
+    console.log(validarRequerido(""));        // Falla
+    console.log(validarRequerido("Joseft"));  // Pasa
+
+    console.log("Prueba validarFormatoEmail:");
+    console.log(validarFormatoEmail("usuario@correo.com")); // Pasa
+    console.log(validarFormatoEmail("correo_invalido"));    // Falla
+
+    console.log("Prueba validarLongitud:");
+    console.log(validarLongitud("1234", 5, 10)); // Falla
+
+    console.log("Prueba validarPasswordCompleja:");
+    console.log(validarPasswordCompleja("Password123!")); //  Pasa
+    console.log(validarPasswordCompleja("password123!")); //  Falla 
+    console.log(validarPasswordCompleja("Passwordabc"));  //  Falla
+    console.log(validarPasswordCompleja("Password123"));  //  Falla 
+    console.log(validarPasswordCompleja("P@ssword"));     //  Falla 
+    
+    console.log("Prueba validarConfirmacionClave:");
+    console.log(validarConfirmacionClave("clave123", "clave123")); // Pasa
+    console.log(validarConfirmacionClave("clave123", "clave321")); // Falla
+
+    console.log("Prueba validarSoloNumeros:");
+    console.log(validarSoloNumeros("095682461")); // Pasa
+    console.log(validarSoloNumeros("0954687df")); // Falla
+    console.log(validarLongitud("123456", 5, 10)); // Pasa
+
+    console.log("Prueba validarContenidoOfensivo:");
+    console.log(validarContenidoOfensivo("Muy bueno")); // Pasa
+    console.log(validarContenidoOfensivo("es una puta  mierda")); // Falla
+
+    console.log("Prueba validarNoMayusculas:");
+    console.log(validarNoMayusculas("Hola que buen juego")); // Pasa
+    console.log(validarNoMayusculas("HOLA QUE BUEN JUEGO")); // Falla
+
+
+    console.log("Prueba validarSinEnlacesExternos:");
+    console.log(validarSinEnlacesExternos("Hola que buen juego y me gusta el pan con queso ")); // Pasa
+    console.log(validarSinEnlacesExternos("HOLA QUE BUEN JUEGO https://aulavirtualmoodle.uleam.edu.ec/mod/quiz/attempt.php?attempt=529616&cmid=172113&page=1 ")); // Falla 
+
+    console.log("Prueba validarTexto:");
+    console.log(validarTexto("Hola mundo.")); // Pasa
+    console.log(validarTexto("hola mundo.")); // Falla
+    console.log(validarTexto("Hola mundo"));  // Falla
+  </script>
+</body>
+</html>
